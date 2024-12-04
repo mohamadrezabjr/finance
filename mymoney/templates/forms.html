@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "master.html" %}
+
+{% block title %}
+Submit expenses and incomes
+{% endblock %}
+
+{% block content %}
+<h2>The expense section</h2>
+<form action="expense" method="post">
+    {% csrf_token %}
+    <label for="token">Please enter your Token number : </label>
+    <input name="token" id = "token"/>
+
+    <label for="text">Note : </label>
+    <input name = "text" id ="text"/>
+
+    <label for = "amount">Price : </label>
+    <input name="amount" id = amount/>
+
+    <button> Save this expense </button>
+</form>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Your Token
+{% endblock %}
+
+{% block content %}
+
+<h1 dir ="rtl" >توکن شما :</h1>
+
+<h1><br>{{ token }}</h1>
+
+<h2 dir="rtl" ><br> توکن خود را جایی ذخیره کنید  </h2>
+
+<h2 dir ="rtl"> <a href =  {% url 'Getting information' %}>ثبت یک خرج </a></h2>
+{% endblock %}

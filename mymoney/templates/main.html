@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem;
+            background-color: #e8f4fc;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #002050;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #004080;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+        .feature {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+        }
+        .feature h3 {
+            color: #004080;
+        }
+        .feature p {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #003366;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Finance Hub</h1>
+        <p>Your Gateway to Smart Financial Solutions</p>
+    </header>
+    <nav>
+        <a href={% url 'register' %}>Register</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h1>Take Control of Your Finances</h1>
+        <p>Discover tools, resources, and guidance to manage your money better.</p>
+    </section>
+    <section class="hero">
+        <h1>Take Control of Your Finances</h1>
+        <p>Discover tools, resources, and guidance to manage your money better.</p>
+    </section>
+    <section class="features">
+        <div class="feature" onclick="location.href='';">
+            <h3>Expense section</h3>
+            <p>Manage your expenses</p>
+        </div>
+        <div class="feature" onclick="location.href='#investment-insights';">
+            <h3>Income section</h3>
+            <p>Manage yor income</p>
+        </div>
+        <div class="feature" onclick="location.href='#secure-solutions';">
+            <h3>Secure Solutions</h3>
+            <p>Enjoy peace of mind with our secure financial tools and services.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
