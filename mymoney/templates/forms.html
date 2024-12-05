@@ -2,23 +2,24 @@
 {% load static %}
 
 {% block title %}
-Register - Finance Hub
+Submit
 {% endblock %}
 
 {% block css %} href = {% static "styles.css" %} {% endblock %}
 
 {% block content %}
     <header>
-        <h1>Finance Hub</h1>
-        <p>Your Gateway to Smart Financial Solutions</p>
+        <h1>Submit</h1>
+        <p>Save Your expenses and incomes here</p>
     </header>
     <nav>
         <a href={% url "main" %}>Home</a>
         <a href={% url "register" %}>Register</a>
         <a href="#contact">Contact</a>
     </nav>
+    <h1 style = "text-align: center">Save An expense</h1>
     <section class="register-container">
-    <form action="expense" method="post">
+    <form  action="expense" method="post">
 
     <label for="token">Enter Your Token number</label>
         <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
@@ -28,13 +29,14 @@ Register - Finance Hub
     <input name = "text" id ="text" placeholder="For what?"/>
 
     <label for = "amount">Price : </label>
-    <input name="amount" id = "amount" placeholder="how much?"/>
+    <input name="amount" id = "amount" placeholder="how much?" required/>
      <button> Save this expense </button>
     </form>
     </section>
 
-        <section class="register-container">
-    <form action="income" method="post">
+<h1 style = "text-align: center">Save An Income</h1>
+    <section class="register-container">
+    <form  action="{% url 'submit income' %}" method="post">
 
     <label for="token">Enter Your Token number</label>
         <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
@@ -43,8 +45,8 @@ Register - Finance Hub
     <label for="text">Note : </label>
     <input name = "text" id ="text" placeholder="For what?"/>
 
-    <label for = "amount">Price : </label>
-    <input name="amount" id = "amount" placeholder="how much?"/>
+    <label for = "amount"  >Price : </label>
+    <input name="amount" id = "amount" placeholder="how much?" required/>
      <button> Save this income </button>
     </form>
     </section>

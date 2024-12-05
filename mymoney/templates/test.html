@@ -1,56 +1,28 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Finance Hub</title>
-    <link rel="stylesheet" href={% static "styles.css" %}>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submission</title>
+  <style>
+    #success-message {
+      display: none;
+      color: green;
+      font-weight: bold;
+    }
+    iframe {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Finance Hub</h1>
-        <p>Your Gateway to Smart Financial Solutions</p>
-    </header>
-    <nav>
-        <a href={% url "main" %}>Home</a>
-        <a href={% url "register" %}>Register</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section class="register-container">
-    <form action="expense" method="post">
-
-    <label for="token">Enter Your Token number</label>
-        <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
-    <input name="token" id = "token" placeholder="Token"/>
-
-    <label for="text">Note : </label>
-    <input name = "text" id ="text" placeholder="For what?"/>
-
-    <label for = "amount">Price : </label>
-    <input name="amount" id = "amount" placeholder="how much?"/>
-     <button> Save this expense </button>
-    </form>
-    </section>
-
-        <section class="register-container">
-    <form action="income" method="post">
-
-    <label for="token">Enter Your Token number</label>
-        <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
-    <input name="token" id = "token" placeholder="Token"/>
-
-    <label for="text">Note : </label>
-    <input name = "text" id ="text" placeholder="For what?"/>
-
-    <label for = "amount">Price : </label>
-    <input name="amount" id = "amount" placeholder="how much?"/>
-     <button> Save this income </button>
-    </form>
-    </section>
-    <footer>
-        <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
-    </footer>
+  <form action="about:blank" target="form-target">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    <button type="submit" onclick="document.querySelector('.result success-dismissible')make() ">Submit</button>
+    <div id="success-message">Form submitted!</div> </hidden> <iframe></form>
 </body>
-</html>

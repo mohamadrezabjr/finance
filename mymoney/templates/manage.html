@@ -1,0 +1,123 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+Management
+{% endblock %}
+
+{% block css %} href = {% static "styles.css" %} {% endblock %}
+
+{% block content %}
+        <header>
+        <h1>Management</h1>
+        <p>You Can See Your Income And Expenses Here</p>
+    </header>
+
+
+     <nav>
+        <a href={% url "main" %}>Home</a>
+        <a href={% url "register" %}>Register</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="t-container">
+        <h2>Expenses List</h2>
+
+        <table style = "width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;" >
+
+
+            <thead >
+                <tr>
+                    <th style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Expense Name</th>
+                    <th style="
+            border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Amount</th>
+                    <th style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Date</th>
+                </tr>
+            </thead>
+            {% for x in expenses %}
+            <tbody>
+                <tr style="background-color: #f4f4f9;">
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left; ">{{ x.text }}</td>
+
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left; color : #c01313"> - {{ x.amount }} Toman</td>
+
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;">{{ x.date }}</td>
+
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </section>
+
+        <section class="t-container">
+        <h2>Incomes List</h2>
+
+        <table style = "width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;" >
+
+
+            <thead >
+                <tr>
+                    <th style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Income Name</th>
+                    <th style="
+            border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Amount</th>
+                    <th style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;
+            background-color: #004080;
+            color: white;">Date</th>
+                </tr>
+            </thead>
+            {% for y in incomes %}
+            <tbody>
+                <tr style="background-color: #f4f4f9;">
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left; ">{{ y.text }}</td>
+
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left; color : #287e1c"> + {{ y.amount }} Toman</td>
+
+                    <td style="border: 1px solid #ccc;
+            padding: 0.8rem;
+            text-align: left;">{{ y.date }}</td>
+
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </section>
+    <footer>
+        <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
+    </footer>
+{% endblock %}

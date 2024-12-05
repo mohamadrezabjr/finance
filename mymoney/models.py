@@ -13,7 +13,7 @@ class expense(models.Model):
     amount = models.BigIntegerField()
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return f"-{self.text}  in : {self.date}"
+        return f"{self.user} - {self.text}  in : {self.date}"
 
 class income(models.Model):
     text = models.TextField(null=True, blank=True)
@@ -21,4 +21,4 @@ class income(models.Model):
     amount = models.BigIntegerField()
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return f"-{self.text}  in : {self.date}"
+        return f"{self.user} - {self.text}  in : {self.date}"

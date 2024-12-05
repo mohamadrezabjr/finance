@@ -1,3 +1,5 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render , redirect
 from .models import *
 from django.http import HttpResponse
@@ -52,6 +54,7 @@ def test(request):
     template= loader.get_template('test.html')
     return HttpResponse(template.render())
 
+
 @csrf_exempt
 def submit_expense(request):
 
@@ -60,8 +63,8 @@ def submit_expense(request):
 
     expense.objects.create(user = this_user , text = request.POST['text'] , amount = request.POST['amount'] ,
                            date = datetime.now() )
-    return HttpResponse('expense submitted')
-
+    return redirect('Getting_information')
+@csrf_exempt
 def submit_income(request):
 
     this_token = request.POST['token']
@@ -69,4 +72,25 @@ def submit_income(request):
 
     income.objects.create(user = this_user , text = request.POST['text'] , amount = request.POST['amount'] ,
                            date = datetime.now() )
-    return HttpResponse('expense submitted')
+    return redirect('Getting_information')
+
+def manage(request):
+    template= loader.get_template('manage.html')
+    return render(request,'manage.html')
+
+def get_token(request):
+
+    template = loader.get_template('get_token.html')
+    return HttpResponse (template.render())
+
+@csrf_exempt
+def manage_expense(request):
+    this_token = request.POST['token']
+    this_user = User.objects.filter(token__token = this_token).get()
+
+    this_expense = expense.objects.filter(user = this_user).order_by('-date')
+    this_income =income.objects.filter(user=this_user).order_by('-date')
+    context = {'expenses' :this_expense , 'incomes': this_income}
+
+    return render(request, 'manage.html', context =context)
+

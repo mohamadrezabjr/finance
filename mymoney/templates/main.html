@@ -98,30 +98,38 @@
         <h1>Finance Hub</h1>
         <p>Your Gateway to Smart Financial Solutions</p>
     </header>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
+
+       <nav>
+        <a href={% url "main" %}>Home</a>
+        <a href={% url "register" %}>Register</a>
         <a href="#contact">Contact</a>
     </nav>
+
     <section class="hero">
         <h1>Take Control of Your Finances</h1>
         <p>Discover tools, resources, and guidance to manage your money better.</p>
     </section>
     <section class="features">
-       <a href="{% url 'Getting_information' %}" class = "feature">
+       <a href="{% url 'Getting_information' %}" class = "feature" style = ' color : #002050; text-decoration: none;'>
             <h3>Submit</h3>
                 <p>Submit your expenses and incomes with yor Token!</p>
             </a>
 
-            <a href="{% url 'register' %}" class="feature">
+            <a href="{% url 'register' %}" class="feature" style = ' color : #002050; text-decoration: none;'>
             <h3>Register section</h3>
             <p>if you don't have Token you should first register </p>
             </a>
 
-            <a href='manage/'  class="feature" >
+            <a href='management/'  class="feature"  style = ' color :#002050 ; text-decoration: none;'>
             <h3>Management Section</h3>
                 <p>Manage your income and expenses</p>
             </a>
+    </section>
+    <section class="features">
+        <a href = "lost/" class = 'feature' style = ' color : #002050; text-decoration: none;'>
+        <h3>Lost Token</h3>
+        <P>You can get your token with your username and password</P>
+    </a>
     </section>
     <footer>
         <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>

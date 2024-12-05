@@ -8,4 +8,10 @@ urlpatterns =[
     path ('login/' , views.login, name='login'),
     path ('test/' , views.test, name='test'),
     path ('' , views.main, name='main'),
+    path('management/showdata' , views.manage_expense, name='manage data'),
+
+    path('management/' , views.get_token, name='get token'),
+    path ('submit/income' , views.submit_income, name='submit income'),
+
+
 ]
