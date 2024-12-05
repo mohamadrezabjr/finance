@@ -1,14 +1,13 @@
 {% extends "master.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Finance Hub</title>
-    <link rel="stylesheet" href= {% static "styles.css"%}>
+{% load static %}
 
-</head>
-<body>
+{% block title %}
+Register - Finance Hub
+{% endblock %}
+
+{% block css %} href = {% static "styles.css" %} {% endblock %}
+
+{% block content %}
     <header>
         <h1>Finance Hub</h1>
         <p>Your Gateway to Smart Financial Solutions</p>
@@ -52,6 +51,6 @@
     <footer>
         <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
     </footer>
-</body>
+{% endblock %}
 </html>
 
