@@ -9,3 +9,22 @@ class RegisterForm (UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
+    def __init__(self, *args, **kwargs):
+
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({
+            'class': 'register-container',
+            'placeholder': 'Username'
+        })
+        self.fields['email'].widget.attrs.update({
+            'class': 'register-container',
+            'placeholder': 'Email Address'
+        })
+        self.fields['password1'].widget.attrs.update({
+            'class': 'register-container',
+            'placeholder': 'Password'
+        })
+        self.fields['password2'].widget.attrs.update({
+            'class': 'register-container',
+            'placeholder': 'Confirm Password'
+        })

@@ -1,5 +1,5 @@
-from lib2to3.fixes.fix_input import context
-
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate
 from django.shortcuts import render , redirect
 from .models import *
 from django.http import HttpResponse
@@ -93,4 +93,22 @@ def manage_expense(request):
     context = {'expenses' :this_expense , 'incomes': this_income}
 
     return render(request, 'manage.html', context =context)
+@csrf_exempt
+def Auth(request):
+
+    auth_user = authenticate(username = request.POST['username'], password = request.POST['password'])
+
+    if auth_user is not None:
+        this_user = User.objects.filter(username = request.POST['username']).get()
+        this_token = Token.objects.filter(user = this_user).get()
+        context = {'token':this_token}
+
+        return render(request , 'auth.html' ,context)
+    else:
+        return redirect('auth form')
+def auth_form(request):
+
+    template = loader.get_template('auth_form.html')
+    return HttpResponse(template.render())
+
 

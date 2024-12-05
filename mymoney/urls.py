@@ -12,6 +12,6 @@ urlpatterns =[
 
     path('management/' , views.get_token, name='get token'),
     path ('submit/income' , views.submit_income, name='submit income'),
-
-
+    path ('lost/' , views.auth_form , name='auth form'),
+    path ('lost/auth' , views.Auth, name='Show token'),
 ]

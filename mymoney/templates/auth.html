@@ -1,0 +1,26 @@
+{#shows token to users that authenticated#}
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+Submit
+{% endblock %}
+
+{% block css %} href = {% static "styles.css" %} {% endblock %}
+
+{% block content %}
+
+    <header>
+        <h1>Authenticated!</h1>
+        <p>Here Is Your Token.</p>
+    </header>
+    <nav>
+        <a href={% url "main" %}>Home</a>
+        <a href={% url "register" %}>Register</a>
+        <a href="https://github.com/mohamadrezabjr">Contact</a>
+    </nav>
+<section class="hero">
+        <h1>{{ token.token }}</h1>
+        <p>Save this token somewhere.</p>
+    </section>
+{% endblock %}
