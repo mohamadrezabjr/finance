@@ -1,15 +1,56 @@
-{% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Finance Hub</title>
+    <link rel="stylesheet" href={% static "styles.css" %}>
 
-{% block title %}
-Test
-{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Finance Hub</h1>
+        <p>Your Gateway to Smart Financial Solutions</p>
+    </header>
+    <nav>
+        <a href={% url "main" %}>Home</a>
+        <a href={% url "register" %}>Register</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="register-container">
+    <form action="expense" method="post">
 
-{% block content %}
+    <label for="token">Enter Your Token number</label>
+        <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
+    <input name="token" id = "token" placeholder="Token"/>
 
-<dev class="form-container">
-<form>
-    <label for="test">  enter your test</label>
-    <input type="test" />
-</form>
-</dev>
-{% endblock %}
+    <label for="text">Note : </label>
+    <input name = "text" id ="text" placeholder="For what?"/>
+
+    <label for = "amount">Price : </label>
+    <input name="amount" id = "amount" placeholder="how much?"/>
+     <button> Save this expense </button>
+    </form>
+    </section>
+
+        <section class="register-container">
+    <form action="income" method="post">
+
+    <label for="token">Enter Your Token number</label>
+        <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
+    <input name="token" id = "token" placeholder="Token"/>
+
+    <label for="text">Note : </label>
+    <input name = "text" id ="text" placeholder="For what?"/>
+
+    <label for = "amount">Price : </label>
+    <input name="amount" id = "amount" placeholder="how much?"/>
+     <button> Save this income </button>
+    </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

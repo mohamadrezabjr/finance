@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href={%  static " styles.css " %}>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,6 +46,8 @@
         .hero p {
             font-size: 1.2rem;
             color: #004080;
+
+            text-decoration: none;
         }
         .features {
             display: flex;
@@ -58,12 +61,28 @@
             border-radius: 8px;
             text-align: center;
             width: 30%;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .feature h3 {
-            color: #004080;
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-        .feature p {
-            color: #333;
+        .feature a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            height: 100%;
+            width: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+
+
+        }
+        .feature a h3 {
+            margin: 0;
+            color: black;
+            text-decoration: none;
+
         }
         footer {
             text-align: center;
@@ -80,7 +99,7 @@
         <p>Your Gateway to Smart Financial Solutions</p>
     </header>
     <nav>
-        <a href={% url 'register' %}>Register</a>
+        <a href="#services">Services</a>
         <a href="#about">About Us</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -88,27 +107,24 @@
         <h1>Take Control of Your Finances</h1>
         <p>Discover tools, resources, and guidance to manage your money better.</p>
     </section>
-    <section class="hero">
-        <h1>Take Control of Your Finances</h1>
-        <p>Discover tools, resources, and guidance to manage your money better.</p>
-    </section>
     <section class="features">
-        <div class="feature" onclick="location.href='';">
-            <h3>Expense section</h3>
-            <p>Manage your expenses</p>
-        </div>
-        <div class="feature" onclick="location.href='#investment-insights';">
-            <h3>Income section</h3>
-            <p>Manage yor income</p>
-        </div>
-        <div class="feature" onclick="location.href='#secure-solutions';">
-            <h3>Secure Solutions</h3>
-            <p>Enjoy peace of mind with our secure financial tools and services.</p>
-        </div>
+       <a href="{% url 'Getting_information' %}" class = "feature">
+            <h3>Submit</h3>
+                <p>Submit your expenses and incomes with yor Token!</p>
+            </a>
+
+            <a href="{% url 'register' %}" class="feature">
+            <h3>Register section</h3>
+            <p>if you don't have Token you should first register </p>
+            </a>
+
+            <a href='manage/'  class="feature" >
+            <h3>Management Section</h3>
+                <p>Manage your income and expenses</p>
+            </a>
     </section>
     <footer>
         <p>&copy; 2024 Finance Hub. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
-

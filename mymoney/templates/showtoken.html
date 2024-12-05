@@ -1,16 +1,73 @@
-{% extends 'master.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration completed</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem;
+            background-color: #e8f4fc;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #002050;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #004080;
 
-{% block title %}
-Your Token
-{% endblock %}
+            text-decoration: none;
+        }
+         nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-{% block content %}
+    </style>
+</head>
+<body>
+<header>
+        <h1>Congratulations!</h1>
+        <p>Now you get a token </p>
+    </header>
+<nav>
+    <a href = {% url "main" %}>Home</a>
+    <a href = 'contact us'>Contact us</a>
 
-<h1 dir ="rtl" >توکن شما :</h1>
+</nav>
+    <section class="hero">
+        <h1>Here is your token</h1>
+        <p> {{ token }}</p>
+    </section>
 
-<h1><br>{{ token }}</h1>
 
-<h2 dir="rtl" ><br> توکن خود را جایی ذخیره کنید  </h2>
 
-<h2 dir ="rtl"> <a href =  {% url 'Getting information' %}>ثبت یک خرج </a></h2>
-{% endblock %}
+
+    </body>

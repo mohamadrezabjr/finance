@@ -7,6 +7,10 @@ from datetime import datetime
 from .forms import *
 import string,random
 
+def main(request):
+    template= loader.get_template('main.html')
+    return render(request,'main.html')
+
 def random_str ():
     return ''.join(random.choices(string.ascii_letters,k=25))
 @csrf_exempt
@@ -55,5 +59,14 @@ def submit_expense(request):
     this_user =  User.objects.filter(token__token = this_token).get()
 
     expense.objects.create(user = this_user , text = request.POST['text'] , amount = request.POST['amount'] ,
+                           date = datetime.now() )
+    return HttpResponse('expense submitted')
+
+def submit_income(request):
+
+    this_token = request.POST['token']
+    this_user =  User.objects.filter(token__token = this_token).get()
+
+    income.objects.create(user = this_user , text = request.POST['text'] , amount = request.POST['amount'] ,
                            date = datetime.now() )
     return HttpResponse('expense submitted')
