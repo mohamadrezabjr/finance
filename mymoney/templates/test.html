@@ -1,28 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Submission</title>
-  <style>
-    #success-message {
-      display: none;
-      color: green;
-      font-weight: bold;
-    }
-    iframe {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request with Button</title>
 </head>
 <body>
-  <form action="about:blank" target="form-target">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br><br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <br><br>
-    <button type="submit" onclick="document.querySelector('.result success-dismissible')make() ">Submit</button>
-    <div id="success-message">Form submitted!</div> </hidden> <iframe></form>
+    <form action="https://example.com/submit" method="POST">
+        <!-- Add input fields if necessary -->
+        <input type="hidden" name="key" value="value">
+        <button type="submit">Send POST Request</button>
+    </form>
 </body>
+</html>

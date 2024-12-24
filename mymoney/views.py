@@ -13,11 +13,11 @@ def main(request):
     template= loader.get_template('main.html')
     return render(request,'main.html')
 
-def random_str ():
+def random_str (): #for making token
     return ''.join(random.choices(string.ascii_letters,k=25))
 @csrf_exempt
-# Create your views here.
-def get_info(request):
+
+def get_info(request): # getting information for saving expenses and incomes
 
     template = loader.get_template('forms.html')
     return HttpResponse (template.render())
@@ -44,16 +44,14 @@ def register(request):
 
     return render(request, 'register.html', context=context)
 
-def login(request):
+# def login(request):
+#
+#     return HttpResponse("<h1>Welcome</h1>")
 
-    return HttpResponse("<h1>Welcome</h1>")
-
-
-def test(request):
+def test(request): ## for test something
 
     template= loader.get_template('test.html')
     return HttpResponse(template.render())
-
 
 @csrf_exempt
 def submit_expense(request):
@@ -63,7 +61,7 @@ def submit_expense(request):
 
     expense.objects.create(user = this_user , text = request.POST['text'] , amount = request.POST['amount'] ,
                            date = datetime.now() )
-    return redirect('Getting_information')
+    return redirect ('Getting_information')
 @csrf_exempt
 def submit_income(request):
 
@@ -84,13 +82,13 @@ def get_token(request):
     return HttpResponse (template.render())
 
 @csrf_exempt
-def manage_expense(request):
+def manage_data(request):
     this_token = request.POST['token']
     this_user = User.objects.filter(token__token = this_token).get()
 
     this_expense = expense.objects.filter(user = this_user).order_by('-date')
     this_income =income.objects.filter(user=this_user).order_by('-date')
-    context = {'expenses' :this_expense , 'incomes': this_income}
+    context = {'expenses' :this_expense , 'incomes': this_income , 'token' : this_token}
 
     return render(request, 'manage.html', context =context)
 @csrf_exempt
@@ -112,3 +110,7 @@ def auth_form(request):
     return HttpResponse(template.render())
 
 
+def expense_added(request):
+    
+    template= loader.get_template('expense_added.html')
+    return render(request,'expense_added.html')

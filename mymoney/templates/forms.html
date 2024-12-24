@@ -19,7 +19,7 @@ Submit
     </nav>
     <h1 style = "text-align: center">Save An expense</h1>
     <section class="register-container">
-    <form  action="expense" method="post">
+    <form  action="{% url 'submit_expense' %}" method="POST">
 
     <label for="token">Enter Your Token number</label>
         <p>Click<a href = {% url "register" %}> here</a> if you don't have token</p>
