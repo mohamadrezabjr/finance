@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login page </title>
+    <link rel = "stylesheet" href = {% static "styles.css" %}>
+
+</head>
+
+
+
+    <header>
+        <h1>Welcome Back ! </h1>
+        <p>Login To Access Tools</p>
+    </header>
+    <nav>
+        <a href={% url "main" %}>Home</a>
+        <a href={% url "register" %}>Register</a>
+        <a href="https://github.com/mohamadrezabjr">Contact</a>
+    </nav>
+
+<body>
+
+<section class="register-container">
+    <form  method="post">
+    {% csrf_token %}
+    <label for="username">Username :</label>
+    <input name="username" id = "username" placeholder="Username"/>
+
+    <label for="password">Your Password : </label>
+    <input name = "password" id ="password" placeholder="Password" type="password"/>
+        <p>if you dont have account register  <a href="/register">here</a> . </p>
+        <button>Login</button>
+    </form>
+</section>
+</body>
+</html>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Registration completed
+
 {% endblock %}
 
 {% block css %} href = {% static "styles.css" %} {% endblock %}
@@ -11,16 +11,24 @@ Registration completed
 
 
 <header>
-        <h1>Congratulations!</h1>
-        <p>Now you get a token </p>
+        <h1>Registration completed</h1>
+        <p> Thank you for signing up!</p>
     </header>
 <nav>
     <a href = {% url "main" %}>Home</a>
     <a href = 'https://github.com/mohamadrezabjr'>Contact us</a>
 
 </nav>
-    <section class="hero">
-        <h1>Here is your token</h1>
-        <p> {{ token }}</p>
+
+       <section class="hero">
+        <h1>Now please log in! </h1>
+        <p>Click this button.</p>
     </section>
+
+
+<section class="features">
+       <a href="{% url 'login' %}" class = "feature" style = ' color : #002050; text-decoration: none;'>
+            <h3>Signin</h3>
+
+</section>
 {% endblock %}
