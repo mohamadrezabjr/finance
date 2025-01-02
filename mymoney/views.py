@@ -8,9 +8,7 @@ from .forms import *
 from django.contrib import messages
 
 def main(request):
-
     return render(request,'main.html')
-
 
 def register(request):
 
