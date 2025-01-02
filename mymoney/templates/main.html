@@ -92,11 +92,18 @@
             margin-top: 2rem;
         }
     </style>
+    {% if messages %}
+<script>
+    {% for message in messages %}
+        alert("{{ message }}");
+    {% endfor %}
+</script>
+{% endif %}
 </head>
 <body>
     <header>
         <h1>Finance</h1>
-        <p>a simple project</p>
+        <p>A simple project</p>
     </header>
 
        <nav>
@@ -109,27 +116,27 @@
         <h1>Manage Your Money</h1>
         <p>Discover tools and resources to manage your money better.</p>
     </section>
+    {% if user.is_authenticated %}
     <section class="features">
-       <a href="{% url 'Getting_information' %}" class = "feature" style = ' color : #002050; text-decoration: none;'>
-            <h3>Submit</h3>
-                <p>Submit your expenses and incomes with yor Token!</p>
+       <a href="{% url 'log_out' %}" class = "feature" style = ' color : #002050; text-decoration: none;'>
+            <h3>Logout</h3>
+                <p>Logout from your account </p>
+    {% else %}
+            <section class="features">
+       <a href="{% url 'login' %}" class = "feature" style = ' color : #002050; text-decoration: none;'>
+            <h3>SignIn</h3>
+                <p>Sign in to access tools</p>
             </a>
-
+           {% endif %}
             <a href="{% url 'register' %}" class="feature" style = ' color : #002050; text-decoration: none;'>
-            <h3>Register section</h3>
-            <p>if you don't have Token you should first register </p>
+            <h3>SignUp</h3>
+            <p>if you don't have account you can sign up here </p>
             </a>
 
-            <a href='management/'  class="feature"  style = ' color :#002050 ; text-decoration: none;'>
-            <h3>Management Section</h3>
-                <p>Manage your income and expenses</p>
+            <a href= "/management"  class="feature"  style = ' color :#002050 ; text-decoration: none;'>
+            <h3>Management</h3>
+                <p>Manage your incomes and expenses</p>
             </a>
-    </section>
-    <section class="features">
-        <a href = "lost/" class = 'feature' style = ' color : #002050; text-decoration: none;'>
-        <h3>Lost Token</h3>
-        <P>You can get your token with your username and password</P>
-    </a>
     </section>
     <footer>
         <p>&copy; 2024 Finance . All Rights Reserved.</p>
