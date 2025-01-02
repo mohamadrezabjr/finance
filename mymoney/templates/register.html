@@ -18,7 +18,7 @@ Registration
         <a href="https://github.com/mohamadrezabjr">Contact</a>
     </nav>
     <section class = register-container>
-        <form method="POST">
+        <form action = "register" method="POST">
 
          {% csrf_token %}
         {{ form.as_p }}
